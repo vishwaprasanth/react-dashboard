@@ -48,24 +48,25 @@ const data = [
     },
   ];
 
-const ChartBox = () => {
+const ChartBox = (props) => {
   return (
     <div className='chartBox'>
         <div className="boxInfo">
             <div className="title">
-                <img src="/user.svg" alt="" />
-                <span className="totalUsers">Total Users</span>
+                <img src={props.icon} alt="" />
+                <span>{props.title}</span>
             </div>
-            <h1>11.238</h1>
+            <h1>{props.number}</h1>
             <Link to='/'>View All</Link>
         </div>
         <div className="chartInfo">
             <div className="chart">
-            <ResponsiveContainer width="100%" height="100%">
-                <LineChart width={300} height={100} data={data}>
+            <ResponsiveContainer width="99%" height="100%">
+                <LineChart data={data}>
                     <Tooltip 
                     contentStyle={{background: "transparent", border: "none"}}
                     labelStyle={{display:"none"}}
+                    position={{x:10, y:50}}
                     />
                 <Line 
                 type="monotone" 
